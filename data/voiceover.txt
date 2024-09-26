@@ -1,0 +1,69 @@
+"Welcome to the Procurement Scenario Planning app! This tool is designed to help you solve supply chain and optimization problems by guiding you through decisions to develop the best sourcing strategy.
+
+You’ll start by editing or uploading your own supplier data. You can modify fields such as capacity, cost, and emissions directly in the table. Once you’re done, simply hit 'commit changes' to save your updates.
+
+On the right, we provide a radar chart that compares supplier performance across multiple criteria, like emissions and cost, giving you a clear, visual comparison.
+
+Next, you can edit the demand data, adjusting periods to match your business needs, whether you're planning over months or weeks.
+
+This app simplifies procurement scenario planning, helping you make data-driven decisions efficiently."
+
+Bridge Section: Connecting Data Input to Scenario Simulation
+
+"Once your supplier and demand data are set, you're ready to move on to scenario analysis. This next step takes your inputs and helps you visualize the optimal sourcing strategy based on your business constraints, such as cost and environmental impact.
+
+By integrating this data, the app allows you to compare two key sourcing scenarios: the baseline scenario—focused purely on cost efficiency—and a dynamic scenario that factors in emissions limits and carbon costs. The sliders you'll interact with provide real-time control, showing how these parameters influence your sourcing decisions."
+
+Part 2: Simulation of Baseline vs Planned Scenario
+
+"Welcome to the Simulation of Baseline versus Planned Scenario Tool.
+
+In this application, we use supplier data that includes capacity, cost, emissions, and monthly demand. With this information, we calculate the optimal sourcing strategy that minimizes total costs, while satisfying demand and adhering to emissions constraints. You can interactively adjust parameters through the sliders to explore the trade-offs between costs and emissions in real-time.
+
+Dynamic Baseline Calculation
+
+The baseline sourcing represents the cost-minimizing scenario without considering any emissions constraints. In this case, the total demand is met by selecting suppliers based solely on their cost efficiency.
+
+Using the data from each supplier—like their capacities and costs—the app calculates the best way to meet your demand at the lowest possible cost. This is the baseline from which we compare other scenarios.
+
+How to Adjust Parameters
+
+At the top, you’ll find three sliders that help control the scenario you want to analyze:
+
+Emissions Cap Slider allows you to set a limit on total emissions during the sourcing process. Lowering the cap will restrict sourcing from suppliers with higher emissions, potentially increasing costs.
+
+Carbon Cost Slider lets you specify the cost per unit of carbon emitted. This cost gets added to the sourcing strategy, pushing for more emissions-friendly suppliers.
+
+Period Slider lets you choose the specific period for which you want to perform scenario analysis. The app retrieves the demand for that period and recalculates accordingly.
+
+Current Scenario Optimization
+
+The tool calculates the optimal sourcing strategy based on your selected emissions cap and carbon cost. In this scenario, we consider both the supplier costs and their emissions impact. This new sourcing plan is compared directly to the baseline.
+
+Table and Graphical Views
+
+Table View
+
+In the table, you can see both baseline and current scenario results:
+
+Units Sourced shows how many units each supplier contributes in both scenarios.
+Emissions display the total CO2 emissions per supplier, for both the baseline and the current scenario.
+Costs reflect the associated costs for each scenario, highlighting the differences in spending when emissions caps and carbon costs are applied.
+The last row of the table provides totals for all suppliers, giving you a clear comparison of overall emissions and costs between the two scenarios.
+
+Graphical View
+
+The graphical tab offers two visualization options:
+
+Bar charts showing emissions and costs by supplier, with baseline values represented by orange diamonds, and the current scenario by blue bars.
+
+Pie charts breaking down the percentage contribution of each supplier to the total emissions and costs. This helps visualize how much each supplier is contributing in terms of environmental and financial impact.
+
+As you adjust the sliders, the graphs and tables update in real-time, giving you immediate feedback on the effects of different emissions and cost controls.
+
+Conclusion
+
+This simulation tool helps you explore the trade-offs between cost and sustainability in supply chain decisions. By adjusting emissions caps and carbon costs, you can see how your choices impact both total costs and environmental performance.
+
+If you'd like more information or a guided tour of this tool, feel free to reach out to Alessandro Silvestro."
+

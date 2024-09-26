@@ -6,19 +6,13 @@ On the right, we provide a radar chart that compares supplier performance across
 
 Next, you can edit the demand data, adjusting periods to match your business needs, whether you're planning over months or weeks.
 
-This app simplifies procurement scenario planning, helping you make data-driven decisions efficiently."
+This app simplifies procurement scenario planning, helping you make data-driven decisions efficiently.
 
-Bridge Section: Connecting Data Input to Scenario Simulation
-
-"Once your supplier and demand data are set, you're ready to move on to scenario analysis. This next step takes your inputs and helps you visualize the optimal sourcing strategy based on your business constraints, such as cost and environmental impact.
+Once your supplier and demand data are set, you're ready to move on to scenario analysis. This next step takes your inputs and helps you visualize the optimal sourcing strategy based on your business constraints, such as cost and environmental impact.
 
 By integrating this data, the app allows you to compare two key sourcing scenarios: the baseline scenario—focused purely on cost efficiency—and a dynamic scenario that factors in emissions limits and carbon costs. The sliders you'll interact with provide real-time control, showing how these parameters influence your sourcing decisions."
 
-Part 2: Simulation of Baseline vs Planned Scenario
-
-"Welcome to the Simulation of Baseline versus Planned Scenario Tool.
-
-In this application, we use supplier data that includes capacity, cost, emissions, and monthly demand. With this information, we calculate the optimal sourcing strategy that minimizes total costs, while satisfying demand and adhering to emissions constraints. You can interactively adjust parameters through the sliders to explore the trade-offs between costs and emissions in real-time.
+For the actual scenario planning section, in the Simulation of Baseline vs Planned Scenario view, we use supplier data that includes capacity, cost, emissions, and monthly demand. With this information, we calculate the optimal sourcing strategy that minimizes total costs, while satisfying demand and adhering to emissions constraints. You can interactively adjust parameters through the sliders to explore the trade-offs between costs and emissions in real-time.
 
 Dynamic Baseline Calculation
 

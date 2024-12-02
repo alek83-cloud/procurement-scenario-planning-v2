@@ -537,45 +537,45 @@ table_data.append(['Total', f"{sum(x_vals_bl):.0f}", f"{sum(x_vals_opt):.0f}", f
 column_labels = ['Supplier', 'Baseline Units Sourced', 'Current Scenario Units Sourced', 'Baseline Emissions','Current Scenario Emissions','Baseline Cost','Current Scenario Cost']
 
 
-tab1, tab2 = st.tabs(["Table view", "Graphical view"])
-tab1.write("""The baseline is a function of the slider values chosen by the user, reflecting the cost-minimizing scenario without considering emissions constraints. 
+#tab1, tab2 = st.tabs(["Table view", "Graphical view"])
+st.write("""The baseline is a function of the slider values chosen by the user, reflecting the cost-minimizing scenario without considering emissions constraints. 
            The simulated current scenario outcomes including emission cap and cost of carbon are displayed in the table below""")
-tab2.write("""The baseline is a function of the slider values chosen by the user, reflecting the cost-minimizing scenario without considering emissions constraints (orange diamonds).
+st.write("""The baseline is a function of the slider values chosen by the user, reflecting the cost-minimizing scenario without considering emissions constraints (orange diamonds).
            The simulated current scenario outcomes including emission cap and cost of carbon are plotted respectively in the bar chart and in the pie chart.""")
 
 
-with tab1:
+#with tab1:
     # Create DataFrame without displaying the index
-    st.dataframe(pd.DataFrame(table_data, columns=column_labels), hide_index=True)
+st.dataframe(pd.DataFrame(table_data, columns=column_labels), hide_index=True)
 
-with tab2:
+#with tab2:
 
-    c5, c6= st.columns(2)
-    c7, c8= st.columns(2)
+    #c5, c6= st.columns(2)
+    #c7, c8= st.columns(2)
 
 
-    with st.container():
+with st.container():
         c5.write("Emissions, Current Scenario vs Baseline")
         c6.write("Costs, Current Scenario vs Baseline")
 
-    with c5:
+with c5:
             # Create DataFrame for Altair chart
         chart_data = pd.DataFrame({
             'Supplier': supplier_df['Supplier'],
             'Current Scenario Emissions': emissions_vals_opt,
             'Baseline Emissions': emissions_vals_bl
         })
-
+        
         # Create a "Total" row with summed values
         total_row = pd.DataFrame({
             'Supplier': ['Total'],
             'Current Scenario Emissions': [sum(emissions_vals_opt)],
             'Baseline Emissions': [sum(emissions_vals_bl)]
         })
-
+        
         # Use pd.concat() to append the "Total" row to the chart_data DataFrame
         chart_data = pd.concat([chart_data, total_row], ignore_index=True)
-
+        
         # aqua color scheme
         custom_colors = ['#7cf9d6', '#6feeb7', '#7fccb6', '#009f8b','#007667']
         
@@ -606,24 +606,24 @@ with tab2:
             ),
             use_container_width=True,
         )
-    with c6:
+with c6:
         # Create DataFrame for Altair chart
         cost_chart_data = pd.DataFrame({
             'Supplier': supplier_df['Supplier'],
             'Scenario Costs': [costs[i] * x_vals_opt[i] for i in range(len(x_vals_opt))],
             'Baseline Costs': [costs[i] * x_vals_bl[i] for i in range(len(x_vals_bl))]
         })
-
+        
         # Create a "Total" row with summed values
         total_cost_row = pd.DataFrame({
             'Supplier': ['Total'],
             'Scenario Costs': [sum(costs[i] * x_vals_opt[i] for i in range(len(x_vals_opt)))],
             'Baseline Costs': [sum(costs[i] * x_vals_bl[i] for i in range(len(x_vals_bl)))]
         })
-
+        
         # Use pd.concat() to append the "Total" row to the cost_chart_data DataFrame
         cost_chart_data = pd.concat([cost_chart_data, total_cost_row], ignore_index=True)
-
+        
         # Plot using Altair for Costs with dynamic color based on values
         st.altair_chart(
             alt.Chart(cost_chart_data)
@@ -650,34 +650,32 @@ with tab2:
             use_container_width=True,
         )
 
-
-
-    with st.container():
+with st.container():
         c7.write("Emissions percentage-wise by supplier")
         c8.write("Costs percentage-wise by supplier")
 
-    with c7:
+with c7:
 
         total_emissions_opt = sum(emissions_vals_opt)
-
+        
         # Calculate percentages for the pie chart
         percentages = [round(val / total_emissions_opt * 100, 2) if total_emissions_opt > 0 else 0 for val in emissions_vals_opt]
-
+        
         # Create a DataFrame with the data for the pie chart
         pie_data = pd.DataFrame({
             'Supplier': suppliers,
             'Emissions': emissions_vals_opt,
             'Percentage': percentages
         })
-
+        
         f_pie_data = pie_data[pie_data['Emissions'] > 0]
-
+        
         # Create the pie chart using Plotly
         fig = px.pie(f_pie_data, names='Supplier', values='Emissions', color_discrete_sequence=custom_colors)
-
+        
         # Set hover template to display the rounded percentage
         fig.update_traces(hovertemplate='%{label}: %{value:.2f} emissions (%{percent:.2%})')
-
+        
         fig.update_layout(
             width=300,  # Adjust the width
             height=300,  # Adjust the height
@@ -685,32 +683,32 @@ with tab2:
                 x=-0.4,  # Move the legend to the left
                 y=0.5,   # Center it vertically
         ))
-
+        
         # Display the pie chart in Streamlit
         st.plotly_chart(fig)
 
-    with c8:
-
+with c8:
+        
         total_costs_opt = sum(costs_vals_opt)
-
+        
         # Calculate percentages for the pie chart
         percentages = [round(val / total_costs_opt * 100, 2) if total_cost_opt > 0 else 0 for val in costs_vals_opt]
-
+        
         # Create a DataFrame with the data for the pie chart
         pie_data = pd.DataFrame({
             'Supplier': suppliers,
             'Costs': costs_vals_opt,
             'Percentage': percentages
         })
-
+        
         f_pie_data = pie_data[pie_data['Costs'] > 0]
-
+        
         # Create the pie chart using Plotly
         fig = px.pie(f_pie_data, names='Supplier', values='Costs', color_discrete_sequence=custom_colors)
-
+        
         # Set hover template to display the rounded percentage
         fig.update_traces(hovertemplate='%{label}: %{value:.2f} costs (%{percent:.2%})')
-
+        
         fig.update_layout(
             width=300,  # Adjust the width
             height=300,  # Adjust the height
@@ -718,15 +716,15 @@ with tab2:
                 x=-0.4,  # Move the legend to the left
                 y=0.5,   # Center it vertically
         ))
-
+        
         # Display the pie chart in Streamlit
         st.plotly_chart(fig)
             
-    #with st.container():
-    #    c5.write("Emission vs Cost")
-    #    c6.write("Units sourced percentage-wise by supplier")
-
-
-    st.markdown("""
+        #with st.container():
+        #    c5.write("Emission vs Cost")
+        #    c6.write("Units sourced percentage-wise by supplier")
+        
+        
+        st.markdown("""
         *For a guided tour and more information, please contact Alessandro Silvestro*
-    """)
+        """)

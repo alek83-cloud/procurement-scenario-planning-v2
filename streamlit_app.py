@@ -550,8 +550,8 @@ st.dataframe(pd.DataFrame(table_data, columns=column_labels), hide_index=True)
 
 #with tab2:
 
-    #c5, c6= st.columns(2)
-    #c7, c8= st.columns(2)
+c5, c6= st.columns(2)
+c7, c8= st.columns(2)
 
 
 with st.container():
